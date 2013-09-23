@@ -1,0 +1,276 @@
+<Project>
+  <Name>Administra-Horarios</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Diagrama</Name>
+    <Language>Java</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Asignatura</Name>
+        <Access>Public</Access>
+        <Location left="1181" top="117" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nombre</Member>
+        <Member type="Field">private int numeroCreditos</Member>
+        <Member type="Field">private int horasDedicadas</Member>
+        <Member type="Field">private String categoriaCurso</Member>
+        <Member type="Constructor">public Asignatura(String nom, int num, int hD, String cC)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Semestre</Name>
+        <Access>Public</Access>
+        <Location left="1519" top="117" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int numero</Member>
+        <Member type="Field">private LinkedList&lt;Asignatura&gt; asignaturas</Member>
+        <Member type="Constructor">public Semestre(int n)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Departamento</Name>
+        <Access>Public</Access>
+        <Location left="81" top="117" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nombre</Member>
+        <Member type="Constructor">public Departamento(String n)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AsignaturaTeorica</Name>
+        <Access>Public</Access>
+        <Location left="1073" top="397" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String pagina</Member>
+        <Member type="Constructor">public AsignaturaTeorica(String p, String nom, int num, int hD, String cC)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AsignaturaPractica</Name>
+        <Access>Public</Access>
+        <Location left="1282" top="397" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String materialApollo</Member>
+        <Member type="Field">private String sistemaOperativo</Member>
+        <Member type="Constructor">public AsignaturaPractica(String mA, String sO, String nom, int num, int hD, String cC)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>HorarioGrupo</Name>
+        <Access>Public</Access>
+        <Location left="828" top="397" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String dia</Member>
+        <Member type="Field">private String horaInicio</Member>
+        <Member type="Field">private String horaFinal</Member>
+        <Member type="Constructor">public HorarioGrupo(String d, String hI, String hF)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Grupo</Name>
+        <Access>Public</Access>
+        <Location left="674" top="117" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nombre</Member>
+        <Member type="Field">private Asignatura asignaturo</Member>
+        <Member type="Field">private HorarioGrupo horario</Member>
+        <Member type="Field">private Profesor profesor</Member>
+        <Member type="Constructor">public Grupo(String n, Asignatura a, HorarioGrupo h, Profesor p)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Profesor</Name>
+        <Access>Public</Access>
+        <Location left="353" top="117" />
+        <Size width="227" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nombre</Member>
+        <Member type="Field">private String cedula</Member>
+        <Member type="Field">private LinkedList&lt;HorarioProfesor&gt; horarioDisponibilidad</Member>
+        <Member type="Field">private Departamento departamento</Member>
+        <Member type="Field">private Usuario usuario</Member>
+        <Member type="Field">private LinkedList&lt;Grupo&gt; grupo</Member>
+        <Member type="Constructor">public Profesor(String nombre, String cedula, String d, String u, String c)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Aula</Name>
+        <Access>Public</Access>
+        <Location left="292" top="675" />
+        <Size width="243" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int numero</Member>
+        <Member type="Field">private String nombre</Member>
+        <Member type="Field">private String ubicacion</Member>
+        <Member type="Field">private int capacidad</Member>
+        <Member type="Constructor">public Aula(int num, String nom, String u, int c)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>HorarioProfesor</Name>
+        <Access>Public</Access>
+        <Location left="417" top="397" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String dia</Member>
+        <Member type="Field">private String horaInicio</Member>
+        <Member type="Field">private String horaFinal</Member>
+        <Member type="Constructor">public HorarioProfesor(String d, String hI, String hF)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AulaTeorica</Name>
+        <Access>Public</Access>
+        <Location left="162" top="962" />
+        <Size width="208" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private boolean aireAcondicionado</Member>
+        <Member type="Field">private boolean equipoMultimedia</Member>
+        <Member type="Constructor">public AulaTeorica(boolean aA, boolean eM, int num, String nom, String u, int c)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Laboratorio</Name>
+        <Access>Public</Access>
+        <Location left="455" top="962" />
+        <Size width="199" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int cantidadEquipo</Member>
+        <Member type="Field">private String equipo</Member>
+        <Member type="Constructor">public Laboratorio(int cE, String e, int num, String nom, String u, int c)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Usuario</Name>
+        <Access>Public</Access>
+        <Location left="81" top="397" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String usuario</Member>
+        <Member type="Field">private String clave</Member>
+        <Member type="Field">private String tipo</Member>
+        <Member type="Constructor">public Usuario(String u, String c, String t)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Horario</Name>
+        <Access>Public</Access>
+        <Location left="654" top="663" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Grupo grupo</Member>
+        <Member type="Field">private Aula aula</Member>
+        <Member type="Constructor">public Horario(Grupo g, Aula a)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Controlador</Name>
+        <Access>Public</Access>
+        <Location left="1164" top="754" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Generalization" first="3" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="0" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>782</X>
+          <Y>358</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="9">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="7">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="10" second="8">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="11" second="8">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="12" second="7">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="13" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="13" second="8">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
