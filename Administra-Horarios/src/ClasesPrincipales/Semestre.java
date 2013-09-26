@@ -24,6 +24,19 @@ public class Semestre {
             this.asignaturas = asignaturas;
         }
 
+        public void agregarAsignatura(Asignatura a){
+            asignaturas.add(a);
+        }
+        
+        public Asignatura buscarAsignatura(String n){
+            for (int i = 0, l = asignaturas.size(); i < l; i++){
+                if (asignaturas.get(i).getNombre().equals(n)){
+                    return asignaturas.get(i);
+                }
+            }
+            return null;
+        }
+        
 	public Semestre(int n) {
 		this.numero = n;
                 this.asignaturas = new LinkedList();
