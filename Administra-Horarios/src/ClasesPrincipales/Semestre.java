@@ -28,6 +28,11 @@ public class Semestre {
             asignaturas.add(a);
         }
         
+        /**
+         * busca por el nombre una signatura en la lista de asignaturas
+         * @param n nombre de la asignatura
+         * @return asignatura buscada
+         */
         public Asignatura buscarAsignatura(String n){
             for (int i = 0, l = asignaturas.size(); i < l; i++){
                 if (asignaturas.get(i).getNombre().equals(n)){

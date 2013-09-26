@@ -6,6 +6,8 @@ import java.util.*;
 public class Controlador {
     private LinkedList<Usuario> listaUsuarios = new LinkedList();
     private LinkedList<Semestre> listaSemestres = new LinkedList();
+    private LinkedList<Profesor> listaProfesores = new LinkedList();
+    private LinkedList<Aula> listaAulas = new LinkedList();
     
     /**
      * inserta usuarios en la lista de usuarios
@@ -44,4 +46,17 @@ public class Controlador {
             }
         }return "no se encuentra el usuario";
     }
+    
+    /**
+     * inserta profesores en la lista de profesores
+     * @param p profesor a insertar
+     */
+    public void insertarProfesor(Profesor p){
+        listaProfesores.add(p);
+    }
+    
+    public void insertarAula(){
+        
+    }
+    
 }
