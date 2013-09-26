@@ -5,6 +5,7 @@
 package InterfazUsuario;
 
 import javax.swing.JOptionPane;
+import ClasesPrincipales.*;
 
 /**
  *
@@ -103,28 +104,43 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private static Controlador instancia = new Controlador();
+    
     private void bIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIngresarActionPerformed
-        if (validarUsuario()){
-            if (cbTipoUsuario.getSelectedItem().toString().equals("Coordinador")){
+        String nU = tfNombreUsuario.getText().toString();
+        char[] cUC = tfContraseñaUsuario.getPassword();
+        String cU = String.copyValueOf(cUC, 0, cUC.length);
+        String tU = cbTipoUsuario.getSelectedItem().toString();
+        
+        Usuario u1 = new Usuario("leock123@gmail.com", "123", "Estudiante");
+        instancia.insetarUsuario(u1);
+        u1 = new Usuario("oscar@gmail.com", "123", "Profesor");
+        instancia.insetarUsuario(u1);
+        u1 = new Usuario("leo@gmail.com", "123", "Coordinador");
+        instancia.insetarUsuario(u1);
+        
+        String resultado = instancia.validarUsuario(nU, cU, tU);
+        
+        
+        if (resultado.equals("correcto")){
+            this.setVisible(false);
+            if (tU.equals("Coordinador")){
                 new PaginaCoordinador().setVisible(true);
-                this.setVisible(false);
-            }else if (cbTipoUsuario.getSelectedItem().toString().equals("Estudiante")){
+            }else if (tU.equals("Estudiante")){
                 new PaginaEstudiante().setVisible(true);
-                this.setVisible(false);
-            }else if (cbTipoUsuario.getSelectedItem().toString().equals("Profesor")){
+            }else {
                 new PaginaProfesor().setVisible(true);
-                this.setVisible(false);
-            }else{
-                JOptionPane.showConfirmDialog(this, "Se presntó un error en el sistema",
-                        "Error", JOptionPane.CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
             }
-        }        // TODO add your handling code here:
+        }else if (resultado.equals("Tipo de Usuario Incorrecto")){
+            JOptionPane.showConfirmDialog(this, resultado, "Usuario", 
+                    JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showConfirmDialog(this, resultado, "Usuario", 
+                    JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_bIngresarActionPerformed
 
-    private boolean validarUsuario(){
-        return true;
-    }
-    
     /**
      * @param args the command line arguments
      */
@@ -158,6 +174,8 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+        
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bIngresar;

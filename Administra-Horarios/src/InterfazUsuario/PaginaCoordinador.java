@@ -60,7 +60,7 @@ public class PaginaCoordinador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        System.exit(EXIT_ON_CLOSE);
+        new Login().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
