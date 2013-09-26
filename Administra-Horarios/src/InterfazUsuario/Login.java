@@ -4,6 +4,8 @@
  */
 package InterfazUsuario;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Quincho
@@ -44,8 +46,13 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
 
         bIngresar.setText("Ingresar");
+        bIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bIngresarActionPerformed(evt);
+            }
+        });
 
-        cbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Estudiante", "Profesor" }));
+        cbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Coordinador", "Estudiante", "Profesor" }));
 
         jLabel4.setText("Tipo de usuario");
 
@@ -96,6 +103,28 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIngresarActionPerformed
+        if (validarUsuario()){
+            if (cbTipoUsuario.getSelectedItem().toString().equals("Coordinador")){
+                new PaginaCoordinador().setVisible(true);
+                this.setVisible(false);
+            }else if (cbTipoUsuario.getSelectedItem().toString().equals("Estudiante")){
+                new PaginaEstudiante().setVisible(true);
+                this.setVisible(false);
+            }else if (cbTipoUsuario.getSelectedItem().toString().equals("Profesor")){
+                new PaginaProfesor().setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showConfirmDialog(this, "Se presntó un error en el sistema",
+                        "Error", JOptionPane.CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+            }
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_bIngresarActionPerformed
+
+    private boolean validarUsuario(){
+        return true;
+    }
+    
     /**
      * @param args the command line arguments
      */
